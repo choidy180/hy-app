@@ -1,15 +1,10 @@
 import Image from 'next/image';
 import SoopLogo from '../public/SOOP_LOGO_Blue.png';
 import YoutubeLogo from '../public/Youtube_logo.png';
-import { useEffect, useState } from 'react';
-import { MdSunny } from "react-icons/md";
-import moment from 'moment';
-import { IoRainyOutline } from 'react-icons/io5';
+import { useState } from 'react';
 
 const LiveContainer = () => {
     const [todayLive, setTodayLive] = useState(false);
-    const [realTime, setRealTime] = useState<string>('');
-    const [liveState, setLiveState] = useState(false);
     return (
         <div className={`absolute left-[20px] top-[20px] w-[300px] p-[20px] bg-[#f1f2f6] shadow-xl rounded-[14px] cursor-pointer transition-all hover:scale-[1.02]`} onClick={()=> setTodayLive(!todayLive)}>
             {/* <h4 className='text-[#FFB7B7]'>오늘은 {moment().format('YYYY년 MM월 DD일')}</h4>
