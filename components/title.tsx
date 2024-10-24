@@ -53,7 +53,7 @@ const TitleComponent = () => {
             <h1 className="font-bold text-6xl mt-[60px]"><span className="text-[#FF0000]">YOUTUBE</span><span className='ml-[14px]'>VIEWCOUNT</span></h1>
             <div className='w-full max-w-[1024px] flex justify-end items-center mt-[100px] border-b-[1.4px] borde-solid border-[#CDCDCD] pb-[14px]'>
                 updated {isClient ? time : ''}
-                <IoMdRefresh className='w-[20px] h-[20px] ml-[4px] cursor-pointer transition-all hover:rotate-90' onClick={()=> setTime(moment().format('YYYY-MM-DD HH:mm:ss'))}/>
+                <IoMdRefresh className='w-[20px] h-[20px] ml-[4px] cursor-pointer transition-all hover:rotate-90 text-blue-400' onClick={()=> setTime(moment().format('YYYY-MM-DD HH:mm:ss'))}/>
             </div>
             <div className='w-[calc(100%-40px)] max-w-[1024px] flex flex-col justify-start items-center mt-[28px]'>
                 <div className='w-full flex justify-start items-center mb-[20px]'>
