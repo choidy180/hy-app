@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 const useTypingWords = (completWords: string, delay: number) => {
   const [words, setWords] = useState('')
   const [count, setCount] = useState(0)
-
   useEffect(() => {
     const typingWords = setInterval(() => {
       if (words.length === completWords.length) return
