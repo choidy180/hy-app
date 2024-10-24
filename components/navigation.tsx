@@ -12,9 +12,9 @@ const Navigation = () => {
     const [more, setMore] = useState(false);
     return (
         <div className="absolute top-0 right-0 p-[14px] px-[20px] flex flex-end items-center text-xl font-semibold cursor-pointer gap-[20px]">
-            <Link href={'/'} className="border-solid border-b-[4px] border-transparent hover:border-[#FFB7B7] hover:text-[#FFB7B7] leading-[24px]">MAIN</Link>
-            <Link href={'/public'} className="border-solid border-b-[4px] border-transparent hover:border-[#FFB7B7] hover:text-[#FFB7B7] leading-[24px]">NOTICE</Link>
-            <span onClick={()=> setMore(true)} className="border-solid border-b-[4px] border-transparent hover:border-[#FFB7B7] hover:text-[#FFB7B7] leading-[24px]">MORE</span>
+            <Link href={'/'} className="border-solid border-b-[4px] border-transparent hover:border-blue-400 hover:text-blue-400 leading-[24px]">MAIN</Link>
+            <Link href={'/public'} className="border-solid border-b-[4px] border-transparent hover:border-blue-400 hover:text-blue-400 leading-[24px]">NOTICE</Link>
+            <span onClick={()=> setMore(true)} className="border-solid border-b-[4px] border-transparent hover:border-blue-400 hover:text-blue-400 leading-[24px]">MORE</span>
             {/* <Link href={'https://play.sooplive.co.kr/lumiynus2'} target="_blank" className="border-solid border-b-[4px] border-transparent hover:border-[#0444B3] hover:text-[#0444B3] leading-[24px]">SOOP</Link> */}
             {/* <Link href={'https://www.youtube.com/@lumiynus22'} target="_blank" className="border-solid border-b-[4px] border-transparent hover:border-[#FF0000] hover:text-[#FF0000] leading-[24px]">YOUTUBE</Link> */}
             {/* <Link href={'https://www.youtube.com/channel/UC0dX-4o5UigUSZdJmgel85Q'} target="_blank" className="border-solid border-b-[4px] border-transparent hover:border-[#A87474] hover:text-[#A87474] leading-[24px]">ASMR</Link> */}

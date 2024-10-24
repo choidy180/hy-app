@@ -11,7 +11,7 @@ const TitleComponent = () => {
     const [time, setTime] = useState(moment().format('YYYY-MM-DD HH:mm:ss'));
     return (
         <div className="w-full min-h-screen flex flex-col justify-start items-center pt-[200px] pb-[200px]">
-            <h1 className='text-2xl font-semibold mb-[80px]'>⭐️히영씨의 게임 왕국에 오신 여러분 환영합니다⭐️</h1>
+            <h1 className='text-2xl font-semibold mb-[40px]'>⭐️히영씨의 게임 왕국에 오신 여러분 환영합니다⭐️</h1>
             <div className='flex justify-center items-center gap-[14px]'>
                 <Link href={'https://ch.sooplive.co.kr/lumiynus2'} target='_blank'>
                     <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-blue-100 text-blue-700 rounded-[14px] text-2xl flex justify-center items-center font-bold font-[yg-jalnan]">
@@ -50,8 +50,8 @@ const TitleComponent = () => {
                     </button>
                 </Link>
             </div>
-            <h1 className="font-bold text-6xl mt-[60px]"><span className="text-[#FF0000]">YOUTUBE</span><span className='ml-[14px]'>VIEWCOUNT</span></h1>
-            <div className='w-full max-w-[1024px] flex justify-end items-center mt-[100px] border-b-[1.4px] borde-solid border-[#CDCDCD] pb-[14px]'>
+            <h1 className="font-bold text-5xl mt-[120px] uppercase"><span className="text-[#FF0000]">YouTube</span><span className='ml-[14px]'>ViewCount</span></h1>
+            <div className='w-full max-w-[1024px] flex justify-end items-center mt-[52px] border-b-[1.4px] borde-solid border-[#CDCDCD] pb-[14px]'>
                 {isClient ? time : ''}
                 <IoMdRefresh className='w-[20px] h-[20px] ml-[4px] cursor-pointer transition-all hover:rotate-90 text-blue-400' onClick={()=> setTime(moment().format('YYYY-MM-DD HH:mm:ss'))}/>
             </div>
