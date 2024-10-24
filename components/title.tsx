@@ -17,36 +17,39 @@ const TitleComponent = () => {
             <h1 className='text-2xl font-semibold mb-[80px]'>⭐️히영씨의 게임 왕국에 오신 여러분 환영합니다⭐️</h1>
             <div className='flex justify-center items-center gap-[14px]'>
                 <Link href={'https://ch.sooplive.co.kr/lumiynus2'} target='_blank'>
-                    <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-blue-100 text-blue-700 font-semibold rounded-[14px] text-2xl flex justify-center items-center">
-                        <Image
+                    <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-blue-100 text-blue-700 rounded-[14px] text-2xl flex justify-center items-center font-bold font-[yg-jalnan]">
+                        {/* <Image
                             src={SoopLogo}
                             width={70}
                             height={50}
                             alt='...'
                             className=''
-                        />
+                        /> */}
+                        SOOP
                     </button>
                 </Link>
                 <Link href={'https://www.youtube.com/channel/UCFefwc_rwPc0G3TXMu2hKrA'} target='_blank'>
-                    <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-red-100 text-[#F00] font-semibold rounded-[14px] text-2xl flex justify-center items-center">
-                        <Image
+                    <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-red-100 text-[#F00] font-semibold rounded-[14px] text-2xl flex justify-center items-center font-[yg-jalnan]">
+                        {/* <Image
                             src={YoutubeLogo}
                             width={44}
                             height={50}
                             alt='...'
                             className=''
-                        />
+                        /> */}
+                        YouTube
                     </button>
                 </Link>
-                <Link href={'https://www.tiktok.com/@lumiynus2?lang=ko-KR'} target='_blank'>
-                    <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-pink-100 text-[#F00] font-semibold rounded-[14px] text-2xl flex justify-center items-center">
-                        <Image
+                <Link href={'https://www.youtube.com/@lumiynus2'} target='_blank'>
+                    <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-pink-100 text-pink-700 font-semibold rounded-[14px] text-2xl flex justify-center items-center font-[yg-jalnan]">
+                        {/* <Image
                             src={TicTocLogo}
                             width={44}
                             height={50}
                             alt='...'
                             className=''
-                        />
+                        /> */}
+                        ASMR
                     </button>
                 </Link>
             </div>
@@ -67,7 +70,7 @@ const TitleComponent = () => {
                     <div className='absolute flex right-0'>
                         <div className='w-[180px] text-[#FF0000] font-semibold text-center'>증감</div>
                         <div className='w-[180px] text-[#FF0000] font-semibold text-center'>누적</div>
-                        <div className='w-[200px] text-[#000000] font-semibold text-center text-[#666]'>게시일</div>
+                        <div className='w-[200px] font-semibold text-center text-[#666]'>게시일</div>
                     </div>
                 </div>
                 <Link href={'https://www.youtube.com/watch?v=CBNX-xUm65I&t=6s'} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[200px]' target='_blank'>
@@ -97,7 +100,7 @@ const TitleComponent = () => {
                     <div className='absolute flex right-0'>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>🔺 1,021,750</div>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>122,905,498</div>
-                        <div className='w-[200px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.05.12</div>
+                        <div className='w-[200px] h-[80px] flex justify-center items-center text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.05.12</div>
                     </div>
                 </Link>
                 <Link href={'https://www.youtube.com/watch?v=X9YXxEVI2XY&t=381s'} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[200px]' target='_blank'>
@@ -127,7 +130,7 @@ const TitleComponent = () => {
                     <div className='absolute flex right-0'>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>🔺 1,004,330</div>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>112,642,338</div>
-                        <div className='w-[200px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.07.25</div>
+                        <div className='w-[200px] h-[80px] flex justify-center items-center text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.07.25</div>
                     </div>
                 </Link>
             </div>
