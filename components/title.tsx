@@ -14,7 +14,7 @@ const TitleComponent = () => {
     const [time, setTime] = useState(moment().format('YYYY-MM-DD HH:mm:ss'));
     return (
         <div className="w-full min-h-screen flex flex-col justify-start items-center pt-[200px]">
-            <h1 className='text-2xl font-semibold mb-[80px]'>⭐️희영씨의 게임 왕국에 오신 여러분 환영합니다⭐️</h1>
+            <h1 className='text-2xl font-semibold mb-[80px]'>⭐️히영씨의 게임 왕국에 오신 여러분 환영합니다⭐️</h1>
             <div className='flex justify-center items-center gap-[14px]'>
                 <Link href={'https://ch.sooplive.co.kr/lumiynus2'} target='_blank'>
                     <button className="px-[40px] py-[8px] h-[54px] w-[200px] bg-blue-100 text-blue-700 font-semibold rounded-[14px] text-2xl flex justify-center items-center">
