@@ -1,7 +1,4 @@
 import Image from 'next/image';
-import SoopLogo from '../public/SOOP_LOGO_Blue.png';
-import YoutubeLogo from '../public/Youtube_logo.png';
-import TicTocLogo from '../public/TicToc.png';
 import Link from 'next/link';
 import moment from 'moment';
 import { IoMdRefresh } from 'react-icons/io';
