@@ -59,7 +59,7 @@ const TitleComponent = () => {
                 <div className='w-full flex justify-start items-center mb-[20px]'>
                     <div className='w-[40px]'/>
                     <div className='w-[120px] flex justify-center items-center'>
-                        <span className='font-semibold'>영상 정보</span>
+                        <span className='font-semibold text-[#666]'>영상 정보</span>
                     </div>
                     <div className='w-[300px] px-[12px]'>
 
@@ -67,7 +67,7 @@ const TitleComponent = () => {
                     <div className='absolute flex right-0'>
                         <div className='w-[180px] text-[#FF0000] font-semibold text-center'>증감</div>
                         <div className='w-[180px] text-[#FF0000] font-semibold text-center'>누적</div>
-                        <div className='w-[200px] text-[#000000] font-semibold text-center'>게시일</div>
+                        <div className='w-[200px] text-[#000000] font-semibold text-center text-[#666]'>게시일</div>
                     </div>
                 </div>
                 <Link href={'https://www.youtube.com/watch?v=CBNX-xUm65I&t=6s'} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[200px]' target='_blank'>
@@ -97,7 +97,7 @@ const TitleComponent = () => {
                     <div className='absolute flex right-0'>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>🔺 1,021,750</div>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>122,905,498</div>
-                        <div className='w-[200px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>2024.05.12</div>
+                        <div className='w-[200px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.05.12</div>
                     </div>
                 </Link>
                 <Link href={'https://www.youtube.com/watch?v=X9YXxEVI2XY&t=381s'} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[200px]' target='_blank'>
@@ -127,7 +127,7 @@ const TitleComponent = () => {
                     <div className='absolute flex right-0'>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>🔺 1,004,330</div>
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>112,642,338</div>
-                        <div className='w-[200px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>2024.07.25</div>
+                        <div className='w-[200px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.07.25</div>
                     </div>
                 </Link>
             </div>
