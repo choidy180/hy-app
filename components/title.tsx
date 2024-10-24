@@ -13,7 +13,7 @@ const TitleComponent = () => {
     const isClient = typeof window !== 'undefined';
     const [time, setTime] = useState(moment().format('YYYY-MM-DD HH:mm:ss'));
     return (
-        <div className="w-full min-h-screen flex flex-col justify-start items-center pt-[200px]">
+        <div className="w-full min-h-screen flex flex-col justify-start items-center pt-[200px] pb-[200px]">
             <h1 className='text-2xl font-semibold mb-[80px]'>⭐️히영씨의 게임 왕국에 오신 여러분 환영합니다⭐️</h1>
             <div className='flex justify-center items-center gap-[14px]'>
                 <Link href={'https://ch.sooplive.co.kr/lumiynus2'} target='_blank'>
@@ -51,11 +51,11 @@ const TitleComponent = () => {
                 </Link>
             </div>
             <h1 className="font-bold text-6xl mt-[60px]"><span className="text-[#FF0000]">YOUTUBE</span><span className='ml-[14px]'>VIEWCOUNT</span></h1>
-            <div className='w-full max-w-[1024px] flex justify-end items-center mt-[40px]'>
+            <div className='w-full max-w-[1024px] flex justify-end items-center mt-[100px] mr-[40px] border-b-[1.4px] borde-solid border-[#CDCDCD] pb-[14px]'>
                 updated {isClient ? time : ''}
                 <IoMdRefresh className='w-[20px] h-[20px] ml-[4px] cursor-pointer transition-all hover:rotate-90' onClick={()=> setTime(moment().format('YYYY-MM-DD HH:mm:ss'))}/>
             </div>
-            <div className='w-full max-w-[1024px] flex flex-col justify-start items-center mt-[100px]'>
+            <div className='w-full max-w-[1024px] flex flex-col justify-start items-center mt-[40px]'>
                 <div className='w-full flex justify-start items-center mb-[20px]'>
                     <div className='w-[40px]'/>
                     <div className='w-[120px] flex justify-center items-center'>
