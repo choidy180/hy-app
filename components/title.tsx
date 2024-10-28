@@ -138,7 +138,7 @@ const TitleComponent = () => {
                                     className='opacity-0 brightness-75 transition-all group-hover:opacity-100'
                                 />
                             </div>
-                            <div className={`w-[40px] h-[80px] font-bold text-xl flex justify-center items-center text-[#FF0000] ${index !== 0 && 'text-[#000000]'}`}>
+                            <div className={`w-[40px] h-[80px] font-bold text-xl flex justify-center items-center text-[#FF0000] ${Number(index) !== 0 && '!text-[#000000]'}`}>
                                 {index+1}
                             </div>
                             <div className='w-[120px] h-[80px] flex justify-center items-center rounded-[6px] overflow-hidden'>
