@@ -3,12 +3,68 @@ import Link from 'next/link';
 import moment from 'moment';
 import { IoMdRefresh } from 'react-icons/io';
 import DefaultImage from '../public/hqdefault.webp';
-import DefaultImage2 from '../public/hqdefault2.webp';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const TitleComponent = () => {
     const isClient = typeof window !== 'undefined';
     const [time, setTime] = useState(moment().format('YYYY-MM-DD HH:mm:ss'));
+    const [videos, setVideos] = useState<any>(null);
+
+    const fetchVideos = async () => {
+        try {
+            // 1. Search endpoint를 통해 기본 비디오 목록 가져오기
+            const searchResponse = await axios.get(
+                "https://www.googleapis.com/youtube/v3/search",
+                {
+                    params: {
+                        key: 'AIzaSyDNXdyTU9lX3BTOgCDkX1-xOyvmrQXLQso',
+                        channelId: 'UCFefwc_rwPc0G3TXMu2hKrA',
+                        part: "snippet",
+                        type: "video",
+                        maxResults: 100,
+                    },
+                }
+            );
+            const videoIds = searchResponse.data.items.map((item:any) => item.id.videoId).join(",");
+            const videosResponse = await axios.get(
+                "https://www.googleapis.com/youtube/v3/videos",
+                {
+                    params: {
+                    key: 'AIzaSyDNXdyTU9lX3BTOgCDkX1-xOyvmrQXLQso',
+                    id: videoIds,
+                    part: "snippet,contentDetails,statistics,status",
+                    },
+                }
+            );
+            // 4. 60초 이상인 비디오만 필터링
+            const longVideos = videosResponse.data.items.filter((item:any) => {
+                const duration = item.contentDetails.duration;
+                const seconds = parseISO8601Duration(duration);
+                return seconds > 60;
+            });
+
+            // 5. 조회수 별로 비디오 목록 정렬
+            const sortedVideos = longVideos.sort((a:any, b:any) =>
+                parseInt(b.statistics.viewCount) - parseInt(a.statistics.viewCount)
+            );
+            // 5. 최종 비디오 목록 설정
+            setVideos(sortedVideos);
+        } catch (error) {
+            console.error("Error fetching videos", error);
+        }
+    }
+    // ISO 8601 Duration 포맷을 초 단위로 변환하는 함수
+    const parseISO8601Duration = (duration:any) => {
+        const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+        const hours = (parseInt(match[1]) || 0) * 3600;
+        const minutes = (parseInt(match[2]) || 0) * 60;
+        const seconds = parseInt(match[3]) || 0;
+        return hours + minutes + seconds;
+    };
+    useEffect(()=> {
+        fetchVideos();
+    },[]);
     return (
         <div className="w-full min-h-screen flex flex-col justify-start items-center pt-[200px] pb-[200px]">
             <h1 className='text-2xl font-semibold mb-[40px]'>⭐️히영씨의 게임 왕국에 오신 여러분 환영합니다⭐️</h1>
@@ -70,37 +126,42 @@ const TitleComponent = () => {
                         <div className='w-[200px] font-semibold text-center text-[#666]'>게시일</div>
                     </div>
                 </div>
-                <Link href={'https://www.youtube.com/watch?v=CBNX-xUm65I&t=6s'} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[200px]' target='_blank'>
-                    <div className='absolute transition-all right-0 w-[calc(100%-40px)] h-0 group-hover:h-[200px]'>
-                        <Image
-                            src={DefaultImage}
-                            layout='fill'
-                            objectFit='cover'
-                            alt='...'
-                            className='opacity-0 brightness-75 transition-all group-hover:opacity-100'
-                        />
-                    </div>
-                    <div className='w-[40px] h-[80px] font-bold text-xl flex justify-center items-center text-[#FF0000]'>
-                        1
-                    </div>
-                    <div className='w-[120px] h-[80px] flex justify-center items-center rounded-[6px] overflow-hidden'>
-                        <Image
-                            src={DefaultImage}
-                            width={120}
-                            height={60}
-                            alt='...'
-                        />
-                    </div>
-                    <div className='w-[300px] h-[80px] flex justify-center items-center px-[12px]'> 
-                        <p className='text-sm leading-4 font-semibold group-hover:text-white'>너가 뭘 할 수 있는데ㅋㅋㅋ 히영씨의 여자아이돌 이상형 월드컵 1~4세대</p>
-                    </div>
-                    <div className='absolute flex right-0'>
-                        <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>🔺 1,021,750</div>
-                        <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>122,905,498</div>
-                        <div className='w-[200px] h-[80px] flex justify-center items-center text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.05.12</div>
-                    </div>
-                </Link>
-                <Link href={'https://www.youtube.com/watch?v=X9YXxEVI2XY&t=381s'} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[200px]' target='_blank'>
+                {
+                    videos !== null && videos?.map((content:any, index:number) => (
+                        <Link key={content.id} href={`https://www.youtube.com/watch?v=${content.id}`} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[260px] mb-[14px]' target='_blank'>
+                            <div className='absolute transition-all right-0 w-[calc(100%-40px)] h-0 group-hover:h-[260px]'>
+                                <Image
+                                    src={content.snippet.thumbnails.high.url ? content.snippet.thumbnails.high.url : DefaultImage}
+                                    layout='fill'
+                                    objectFit='cover'
+                                    alt='...'
+                                    className='opacity-0 brightness-75 transition-all group-hover:opacity-100'
+                                />
+                            </div>
+                            <div className={`w-[40px] h-[80px] font-bold text-xl flex justify-center items-center text-[#FF0000] ${index !== 0 && 'text-[#000000]'}`}>
+                                {index+1}
+                            </div>
+                            <div className='w-[120px] h-[80px] flex justify-center items-center rounded-[6px] overflow-hidden'>
+                                <Image
+                                    src={content.snippet.thumbnails.default.url ? content.snippet.thumbnails.default.url : DefaultImage}
+                                    width={200}
+                                    height={140}
+                                    alt='...'
+                                    className='scale-[1.15]'
+                                />
+                            </div>
+                            <div className='w-[300px] h-[80px] flex justify-center items-center px-[12px]'> 
+                                <p className='text-sm leading-4 font-semibold group-hover:text-white'>{content.snippet.localized.title}</p>
+                            </div>
+                            <div className='absolute flex right-0'>
+                                <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>🔺 {content.statistics.likeCount}</div>
+                                <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>{content.statistics.viewCount}</div>
+                                <div className='w-[200px] h-[80px] flex justify-center items-center text-center font-semibold text-sm group-hover:text-white text-[#666]'>{moment(content.snippet.publishedAt).format('YYYY.MM.DD')}</div>
+                            </div>
+                        </Link>
+                    ))
+                }
+                {/* <Link href={'https://www.youtube.com/watch?v=X9YXxEVI2XY&t=381s'} className='w-full transition-all flex justify-start items-start cursor-pointer group hover:h-[200px]' target='_blank'>
                     <div className='absolute transition-all right-0 w-[calc(100%-40px)] h-0 group-hover:h-[200px]'>
                         <Image
                             src={DefaultImage2}
@@ -129,10 +190,9 @@ const TitleComponent = () => {
                         <div className='w-[180px] h-[80px] flex justify-center items-center text-[#000000] text-center font-semibold text-sm group-hover:text-white'>112,642,338</div>
                         <div className='w-[200px] h-[80px] flex justify-center items-center text-center font-semibold text-sm group-hover:text-white text-[#666]'>2024.07.25</div>
                     </div>
-                </Link>
+                </Link> */}
             </div>
         </div>
     )
 }
-
 export default TitleComponent

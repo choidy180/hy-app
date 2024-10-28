@@ -7,6 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <title>⭐️히영씨의 게임왕국⭐️</title>
       <body
         className={`w-[100vw] max-w-[100vw min-h-screen`}
       >
